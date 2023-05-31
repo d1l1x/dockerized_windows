@@ -44,13 +44,6 @@ RUN echo 'net.ipv6.conf.all.disable_ipv6 = 1' > /etc/sysctl.conf
 RUN mkdir /guest-system
 COPY Vagrantfile /guest-system
 
-# # Clean up after vagrant has been b uilt
-# RUN apk del ruby-bundler ruby-dev make gcc musl-dev \
-#       && rm -rf /tmp/vagrant \
-#       && rm -rf /root/.bundle \
-#       && rm -rf /root/.gem \
-#       && rm -rf /root/.vagrant.d && apk del ruby-bundler ruby-dev make gcc musl-dev
-
 ADD --chmod=755 startup.sh startup.sh
 
 ENTRYPOINT ["/startup.sh"]

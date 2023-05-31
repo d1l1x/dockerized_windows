@@ -60,6 +60,12 @@ build {
   provisioner "powershell" {
     elevated_password = "${var.password}"
     elevated_user     = "${var.user}"
+    script            = "./files/install-7zip.ps1"
+  }
+
+  provisioner "powershell" {
+    elevated_password = "${var.password}"
+    elevated_user     = "${var.user}"
     script            = "./files/install-guest-additions.ps1"
   }
 
